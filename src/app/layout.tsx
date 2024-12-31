@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import styles from "./layout.module.css";
-import Link from "next/link";
+import TopNavigation from "@components/navigation/TopNavigation";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,10 +16,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <nav>
-          <Link href="/">홈</Link>
-          <Link href="/FAQ">FAQ</Link>
-        </nav>
+        <TopNavigation />
         <main className={styles.container}>{children}</main>
         <footer>
           <p>© 2024 Kia Motors</p>

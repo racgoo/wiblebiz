@@ -1,17 +1,36 @@
+:root {
+  --gray900: #000000;
+  --gray800: #05141f;
+  --gray750: #37434c;
+  --gray700: #697278;
+  --gray600: #6a7a87;
+  --mint900: #70d7bf;
+  --mint700: #8ddfcc;
+  --gray500: #82898f;
+  --blue200: #deeaf6;
+  --blue100: #f4f5fb;
+  --gray100: #f8f8f8;
+  --white: #ffffff;
+  --pc-width: 1024px;
+  --tablet-width: 744px;
+  --mobile-width: 360px;
+  /* media query 변수 사용 못해서 좀 아쉽네 */
+}
+
 @font-face {
   font-family: "Kia-font-400";
-  src: url("/fonts/KiaSignatureFixRegular.woff2") format("woff2");
+  src: url("/fonts/KiaSignatureFixRegula.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: "Kia-font-600";
   src: url("/fonts/KiaSignatureFixBold.woff2") format("woff2");
-  font-weight: 700;
+  font-weight: 600;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -19,7 +38,7 @@
   src: url("/fonts/KiaSignatureFixBold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 html,
