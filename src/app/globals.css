@@ -1,3 +1,27 @@
+@font-face {
+  font-family: "Kia-font-400";
+  src: url("/fonts/KiaSignatureFixRegular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kia-font-600";
+  src: url("/fonts/KiaSignatureFixBold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kia-font-700";
+  src: url("/fonts/KiaSignatureFixBold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 html,
 body {
   font-size: 16px;
@@ -6,7 +30,7 @@ body {
   min-width: 360px;
   color: #05141f;
   background: #ffffff;
-  font-family: "Kia Signature Fix", Arial, sans-serif, Helvetica;
+  font-family: "Kia-font-400", Arial, sans-serif, Helvetica;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
