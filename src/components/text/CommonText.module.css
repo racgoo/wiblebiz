@@ -1,0 +1,13 @@
+.large {
+  font-family: "Kia-font-700";
+  font-weight: 700;
+}
+
+.regular {
+  font-family: "Kia-font-600";
+  font-weight: 600;
+}
+
+.small {
+  font-family: "Kia-font-400";
+}
