@@ -1,0 +1,32 @@
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.line {
+  width: 20px;
+  height: 2px;
+  background-color: var(--gray900);
+  transition: all 0.4s cubic-bezier(1, 0, 0.2, 1);
+}
+
+.open .line:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px) scaleX(1.4);
+}
+
+.open .line:nth-child(2) {
+  transform: translateX(100%);
+}
+
+.open .line:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -4px) scaleX(1.4);
+}

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
-import styles from "@components/navigatiojn/NavigationLink.module.css";
+import styles from "@components/navigation/NavigationLink.module.css";
 import CommonText from "@components/text/CommonText";
 import { useEffect, useState } from "react";
 
@@ -15,10 +15,11 @@ function NavigationLink({ href, text }: NavigationLinkProps) {
   const pathname = usePathname();
   const [linkClassName, setLinkClassName] = useState(styles.navLink);
 
-  //초기 애니메이션
   useEffect(() => {
     if (pathname === href) {
       setLinkClassName(clsx(styles.navLink, styles.active));
+    } else {
+      setLinkClassName(styles.navLink);
     }
   }, [pathname]);
 

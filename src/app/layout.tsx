@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import styles from "./layout.module.css";
-import TopNavigation from "@/components/navigatiojn/TopNavigation";
+import TopNavigation from "@components/navigation/TopNavigation";
 
 export const metadata: Metadata = {
   title: "Create Next App",

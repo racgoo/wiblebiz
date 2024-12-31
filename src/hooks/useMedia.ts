@@ -1,22 +1,30 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
-function useMedia() {
-  const isReady = useRef(false);
+type MediaType = "pc" | "tablet" | "mobile" | "loading";
+
+function useMedia(): MediaType {
+  const [isReady, setIsReady] = useState(false);
+
   useEffect(() => {
-    isReady.current = true;
+    setIsReady(true);
   }, []);
+
   const size = {
     mobile: 360,
     tablet: 744,
     pc: 1024,
   };
-  const isPc = useMediaQuery({ minWidth: size.pc }) && isReady.current;
-  const isTablet = useMediaQuery({ minWidth: size.tablet }) && isReady.current;
-  const isMobile = useMediaQuery({ minWidth: size.mobile }) && isReady.current;
-  return { isPc, isTablet, isMobile, isReady };
+
+  const isPc = useMediaQuery({ minWidth: size.pc }) && isReady;
+  const isTablet = useMediaQuery({ minWidth: size.tablet }) && isReady;
+
+  if (!isReady) return "loading";
+  if (isPc) return "pc";
+  if (isTablet) return "tablet";
+  return "mobile";
 }
 
 export default useMedia;
