@@ -8,6 +8,7 @@ import MobileDetail from "@components/footer/details/MobileDetail";
 import TabletDetail from "@components/footer/details/TabletDetail";
 import PcDetail from "@components/footer/details/PcDetail";
 import Copyright from "@components/footer/copyright/Copyright";
+import Dialog from "@components/dialog/Dialog";
 
 const PRIVACY_POLICY_URL = "https://privacy.kia.com/overview/full-policy";
 const TERMS_OF_SERVICE_URL = "/TermsOfUse";
@@ -50,6 +51,11 @@ function Footer() {
           <Copyright media={media} />
         </section>
       </div>
+      <Dialog open={true}>
+        <div style={{ width: 100, height: 100, backgroundColor: "red" }}>
+          <h1>Dialog</h1>
+        </div>
+      </Dialog>
     </footer>
   );
 }
