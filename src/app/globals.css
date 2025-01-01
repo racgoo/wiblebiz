@@ -8,13 +8,18 @@
   --mint700: #8ddfcc;
   --gray500: #82898f;
   --blue200: #deeaf6;
+  --gray200: #cdd0d2;
   --blue100: #f4f5fb;
   --gray100: #f8f8f8;
   --white: #ffffff;
+
   --pc-width: 1024px;
   --tablet-width: 744px;
   --mobile-width: 360px;
   /* media query 변수 사용 못해서 좀 아쉽네 */
+  --Kia-font-400: "Kia-font-400";
+  --Kia-font-600: "Kia-font-600";
+  --Kia-font-700: "Kia-font-700";
 }
 
 @font-face {
@@ -49,7 +54,7 @@ body {
   min-width: 360px;
   color: #05141f;
   background: #ffffff;
-  font-family: "Kia-font-400", Arial, sans-serif, Helvetica;
+  font-family: "Kia-font-700", Arial, sans-serif, Helvetica;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -63,4 +68,27 @@ a {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Select box 스타일 초기화 */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+}
+
+/* IE 에서 Select box 화살표 제거 */
+select::-ms-expand {
+  display: none;
+}
+
+*:focus {
+  outline: 0;
 }
