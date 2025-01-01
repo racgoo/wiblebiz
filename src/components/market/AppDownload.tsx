@@ -7,6 +7,11 @@ import Image from "next/image";
 import appStore from "@public/logo/appstore-logo.svg";
 import playStore from "@public/logo/playstore-logo.svg";
 
+const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=kor.mop.user.app";
+const APP_STORE_URL =
+  "https://apps.apple.com/kr/app/%EC%9C%84%EB%B8%94-%EB%B9%84%EC%A6%88/id1598065794";
+
 const appInfoTitleFontSize: Record<MediaType, number> = {
   loading: 16,
   mobile: 16,
@@ -46,7 +51,7 @@ function AppDownload() {
       </section>
 
       <section className={styles.downloadContainer}>
-        <div className={styles.download}>
+        <a className={styles.download} href={PLAY_STORE_URL}>
           <Image
             src={playStore}
             alt="playStore"
@@ -56,8 +61,8 @@ function AppDownload() {
           <CommonText type="regular" size={marketFontSize}>
             Google Play
           </CommonText>
-        </div>
-        <div className={styles.download}>
+        </a>
+        <a className={styles.download} href={APP_STORE_URL}>
           <Image
             src={appStore}
             alt="appStore"
@@ -67,7 +72,7 @@ function AppDownload() {
           <CommonText type="regular" size={marketFontSize}>
             App Store
           </CommonText>
-        </div>
+        </a>
       </section>
     </article>
   );
