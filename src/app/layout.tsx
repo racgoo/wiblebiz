@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body>
+      <body style={{ height: "100%" }}>
         <TopNavigation />
         <main className={styles.container}>{children}</main>
         <Footer />

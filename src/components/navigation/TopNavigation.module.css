@@ -4,10 +4,23 @@
   justify-content: space-between;
   height: 56px;
   padding: 0px 24px;
+  position: fixed;
+  width: 100%;
+  background-color: var(--white);
+  z-index: 1000;
+}
+
+.navSpacer {
+  height: 56px;
+}
+
+.shadow {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 1024px) {
-  .container {
+  .container,
+  .navSpacer {
     height: 80px;
   }
 }
