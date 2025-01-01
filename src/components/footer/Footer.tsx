@@ -9,6 +9,8 @@ import TabletDetail from "@components/footer/details/TabletDetail";
 import PcDetail from "@components/footer/details/PcDetail";
 import Copyright from "@components/footer/copyright/Copyright";
 import Dialog from "@components/dialog/Dialog";
+import Term from "./term/Term";
+import { useState } from "react";
 
 const PRIVACY_POLICY_URL = "https://privacy.kia.com/overview/full-policy";
 const TERMS_OF_SERVICE_URL = "/TermsOfUse";
@@ -33,15 +35,24 @@ function DetailGuide({ media }: { media: MediaType }) {
 
 function Footer() {
   const media = useMedia();
-  if (media === "loading") return null;
+  const [dialogOpen, setDialogOpen] = useState(false);
 
+  function handleCloseDialog() {
+    setDialogOpen(false);
+  }
+
+  function handleOpenDialog() {
+    setDialogOpen(true);
+  }
+
+  if (media === "loading") return null;
   return (
     <footer className={styles.container}>
       <div className={styles.contentContainer}>
         <section>
           <div className={styles.buttonContainer}>
             <Link href={PRIVACY_POLICY_URL}>개인정보 처리방침</Link>
-            <Link href={TERMS_OF_SERVICE_URL}>이용약관</Link>
+            <a onClick={handleOpenDialog}>이용약관</a>
           </div>
           <div className={styles.textContainer}>
             <DetailGuide media={media} />
@@ -51,10 +62,8 @@ function Footer() {
           <Copyright media={media} />
         </section>
       </div>
-      <Dialog open={true}>
-        <div style={{ width: 100, height: 100, backgroundColor: "red" }}>
-          <h1>Dialog</h1>
-        </div>
+      <Dialog open={dialogOpen}>
+        <Term handleClose={handleCloseDialog} />
       </Dialog>
     </footer>
   );

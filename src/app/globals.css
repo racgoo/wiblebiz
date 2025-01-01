@@ -53,7 +53,7 @@ body {
   min-width: 360px;
   color: #05141f;
   background: #ffffff;
-  font-family: "Kia-font-400", Arial, sans-serif, Helvetica;
+  font-family: "Kia-font-700", Arial, sans-serif, Helvetica;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -73,4 +73,21 @@ button {
   cursor: pointer;
   border: none;
   background: none;
+}
+
+/* Select box 스타일 초기화 */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+}
+
+/* IE 에서 Select box 화살표 제거 */
+select::-ms-expand {
+  display: none;
+}
+
+*:focus {
+  outline: 0;
 }
