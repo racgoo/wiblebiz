@@ -1,4 +1,4 @@
-import styles from "@components/footer/term/TermHeader.module.css";
+import styles from "@components/term/TermHeader.module.css";
 import CommonText from "@components/text/CommonText";
 import closeIcon from "@public/icon/close.svg";
 import Image from "next/image";

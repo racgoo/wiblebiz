@@ -2,18 +2,17 @@
 
 import styles from "@components/footer/Footer.module.css";
 import useMedia, { MediaType } from "@hooks/useMedia";
-import Link from "next/link";
 import { DETAIL_INFO_TYPE } from "./details/info.type";
 import MobileDetail from "@components/footer/details/MobileDetail";
 import TabletDetail from "@components/footer/details/TabletDetail";
 import PcDetail from "@components/footer/details/PcDetail";
 import Copyright from "@components/footer/copyright/Copyright";
 import Dialog from "@components/dialog/Dialog";
-import Term from "./term/Term";
+import Term from "../term/Term";
 import { useState } from "react";
 
 const PRIVACY_POLICY_URL = "https://privacy.kia.com/overview/full-policy";
-const TERMS_OF_SERVICE_URL = "/TermsOfUse";
+import termData from "@components/term/dummyTermData";
 
 const DETAIL_INFO: DETAIL_INFO_TYPE = {
   location: "서울특별시 서초구 헌릉로 12",
@@ -51,7 +50,7 @@ function Footer() {
       <div className={styles.contentContainer}>
         <section>
           <div className={styles.buttonContainer}>
-            <Link href={PRIVACY_POLICY_URL}>개인정보 처리방침</Link>
+            <a href={PRIVACY_POLICY_URL}>개인정보 처리방침</a>
             <a onClick={handleOpenDialog}>이용약관</a>
           </div>
           <div className={styles.textContainer}>
@@ -62,8 +61,9 @@ function Footer() {
           <Copyright media={media} />
         </section>
       </div>
+
       <Dialog open={dialogOpen}>
-        <Term handleClose={handleCloseDialog} />
+        <Term handleClose={handleCloseDialog} termData={termData} />
       </Dialog>
     </footer>
   );

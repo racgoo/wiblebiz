@@ -1,0 +1,31 @@
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 0px 20px 20px 20px;
+}
+
+.select {
+  width: 100%;
+  height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 16px;
+  border: 1px solid var(--gray200);
+  font-family: Kia-font-600;
+  font-size: 16px;
+  @media (min-width: 744px) {
+    height: 48px;
+  }
+}
+
+.selectArrow {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  cursor: pointer;
+  pointer-events: none;
+  @media (min-width: 744px) {
+    top: 16px;
+  }
+}

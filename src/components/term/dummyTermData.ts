@@ -1,4 +1,4 @@
-export const termData = {
+const termData = {
   terms: [
     {
       termsName: "이용 약관(필수)",
@@ -42,3 +42,5 @@ export const termData = {
     },
   ],
 };
+
+export default termData;
