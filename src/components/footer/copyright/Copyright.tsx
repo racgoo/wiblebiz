@@ -13,7 +13,9 @@ function Copyright({ media }: { media: MediaType }) {
   return (
     <section>
       <Image src={kiaLogo} alt="kia-logo" height={logoHeight[media]} />
-      <p style={{ marginLeft: 0 }}>© 2023 KIA CORP. All Rights Reserved.</p>
+      <p style={{ display: "block", marginLeft: 0 }}>
+        © 2023 KIA CORP. All Rights Reserved.
+      </p>
     </section>
   );
 }

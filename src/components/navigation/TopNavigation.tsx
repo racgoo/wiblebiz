@@ -1,7 +1,11 @@
+"use client";
+
 import styles from "@components/navigation/TopNavigation.module.css";
 import NavigationLink from "@components/navigation/NavigationLink";
 import NavigationLogo from "@components/navigation/NavigationLogo";
 import Hamburger from "@components/navigation/Hamburger";
+import { Fragment, useEffect, useRef, useState } from "react";
+import clsx from "clsx";
 
 const NAV_LINKS = [
   { href: "/Guide", text: "서비스 소개" },
@@ -11,16 +15,40 @@ const NAV_LINKS = [
 ];
 
 function TopNavigation() {
+  const [isNeedShadow, setIsNeedShadow] = useState(false);
+  const dividerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsNeedShadow(!entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+    if (dividerRef.current) {
+      observer.observe(dividerRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <nav className={styles.container}>
-      <NavigationLogo />
-      <li className={styles.navLinks}>
-        {NAV_LINKS.map((link) => (
-          <NavigationLink key={link.href} href={link.href} text={link.text} />
-        ))}
-      </li>
-      <Hamburger />
-    </nav>
+    <Fragment>
+      <nav className={clsx(styles.container, isNeedShadow && styles.shadow)}>
+        <NavigationLogo />
+        <li className={styles.navLinks}>
+          {NAV_LINKS.map((link) => (
+            <NavigationLink key={link.href} href={link.href} text={link.text} />
+          ))}
+        </li>
+        <Hamburger />
+      </nav>
+      <i
+        ref={dividerRef}
+        style={{ height: 1 }}
+        id="fixed-intersection-divider"
+      />
+      <div className={styles.navSpacer} />
+    </Fragment>
   );
 }
 
