@@ -1,0 +1,16 @@
+.processInfo {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+.processBoxList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    gap: 48px;
+    padding: 0px 24px;
+  }
+}

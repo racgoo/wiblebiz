@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: "Kia-font-400";
-  src: url("/fonts/KiaSignatureFixRegula.woff2") format("woff2");
+  src: url("/font/KiaSignatureFixRegula.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: block;
@@ -32,7 +32,7 @@
 
 @font-face {
   font-family: "Kia-font-600";
-  src: url("/fonts/KiaSignatureFixBold.woff2") format("woff2");
+  src: url("/font/KiaSignatureFixBold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: block;
@@ -40,7 +40,7 @@
 
 @font-face {
   font-family: "Kia-font-700";
-  src: url("/fonts/KiaSignatureFixBold.woff2") format("woff2");
+  src: url("/font/KiaSignatureFixBold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: block;

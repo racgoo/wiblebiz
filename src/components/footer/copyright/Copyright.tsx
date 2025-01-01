@@ -11,7 +11,7 @@ const logoHeight: Record<MediaType, number> = {
 
 function Copyright({ media }: { media: MediaType }) {
   return (
-    <section style={{ display: "flex", flexDirection: "column" }}>
+    <section>
       <Image src={kiaLogo} alt="kia-logo" height={logoHeight[media]} />
       <p style={{ marginLeft: 0 }}>© 2023 KIA CORP. All Rights Reserved.</p>
     </section>
