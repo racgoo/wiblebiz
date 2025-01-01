@@ -92,3 +92,7 @@ select::-ms-expand {
 *:focus {
   outline: 0;
 }
+
+input {
+  border: none;
+}
