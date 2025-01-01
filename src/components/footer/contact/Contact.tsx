@@ -3,7 +3,7 @@ function Contact({ email }: { email: string }) {
     <span>
       <p>고객센터: 1833-4964</p>
       <a href={`mailto:${email}`}>
-        제휴문의: &nbsp;
+        제휴문의:{" "}
         <span style={{ cursor: "pointer", textDecoration: "underline" }}>
           {email}
         </span>

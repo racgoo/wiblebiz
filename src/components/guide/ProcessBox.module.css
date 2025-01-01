@@ -1,0 +1,32 @@
+.processBox {
+  display: flex;
+  flex-direction: row;
+  @media (min-width: 1024px) {
+    flex-direction: column;
+  }
+}
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 4px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+  @media (min-width: 1024px) {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+  }
+}
+
+.arrowIcon {
+  position: absolute;
+  left: -32px;
+  width: 24px;
+  height: 24px;
+}
