@@ -1,3 +1,11 @@
-export default function FAQPage() {
-  return <div>FAQ</div>;
+import AppDownload from "@components/market/AppDownload";
+
+function FAQPage() {
+  return (
+    <div>
+      <AppDownload />
+    </div>
+  );
 }
+
+export default FAQPage;

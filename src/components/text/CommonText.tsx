@@ -15,7 +15,10 @@ function CommonText({
   color = "gray800",
 }: CommonTextProps) {
   return (
-    <p className={styles[type]} style={{ fontSize: size, color: color }}>
+    <p
+      className={styles[type]}
+      style={{ fontSize: size, color: colors[color] }}
+    >
       {children}
     </p>
   );
