@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
-type MediaType = "pc" | "tablet" | "mobile" | "loading";
+export type MediaType = "pc" | "tablet" | "mobile" | "loading";
 
 function useMedia(): MediaType {
   const [isReady, setIsReady] = useState(false);

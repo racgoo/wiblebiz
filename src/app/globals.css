@@ -11,10 +11,14 @@
   --blue100: #f4f5fb;
   --gray100: #f8f8f8;
   --white: #ffffff;
+
   --pc-width: 1024px;
   --tablet-width: 744px;
   --mobile-width: 360px;
   /* media query 변수 사용 못해서 좀 아쉽네 */
+  --Kia-font-400: "Kia-font-400";
+  --Kia-font-600: "Kia-font-600";
+  --Kia-font-700: "Kia-font-700";
 }
 
 @font-face {
@@ -63,4 +67,10 @@ a {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
 }
