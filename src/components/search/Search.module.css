@@ -4,6 +4,7 @@
   justify-content: center;
   border: 1px solid var(--gray800);
   height: 40px;
+  background-color: var(--white);
   @media (min-width: 744px) {
     height: 48px;
     max-width: 400px;
@@ -23,7 +24,6 @@
   padding-left: 16px;
   @media (min-width: 744px) {
     font-size: 16px;
-    width: 400px;
   }
   @media (min-width: 1024px) {
     font-size: 18px;
@@ -39,6 +39,10 @@
   height: 20px;
   margin-right: 8px;
   cursor: pointer;
+  @media (min-width: 744px) {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .searchButton {
@@ -46,4 +50,12 @@
   height: 24px;
   margin-right: 8px;
   cursor: pointer;
+  @media (min-width: 744px) {
+    width: 28px;
+    height: 28px;
+  }
+  @media (min-width: 1024px) {
+    width: 32px;
+    height: 32px;
+  }
 }

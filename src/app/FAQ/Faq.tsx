@@ -1,9 +1,9 @@
 "use client";
 
-import Search from "@components/search/Search";
 import { useEffect, useState } from "react";
 import FaqTitle from "./FaqTitle";
 import Tab from "@components/tab/Tab";
+import FaqSearch from "./FaqSearch";
 
 const tabList = [
   {
@@ -37,7 +37,7 @@ function Faq() {
         selectedTabIndex={selectedTabIndex}
         marginBottom={24}
       />
-      <Search
+      <FaqSearch
         setSearchText={setSearchText}
         searchAction={searchAction}
         marginBottom={16}
