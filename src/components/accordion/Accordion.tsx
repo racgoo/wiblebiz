@@ -2,24 +2,25 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "@components/accordion/Accordion.module.css";
-import CommonText from "@components/text/CommonText";
 import clsx from "clsx";
 import accordionArrow from "@public/icon/accordion-arrow-icon.svg";
 import Image from "next/image";
 
 interface AccordionProps {
-  header: React.ReactNode;
-  content: React.ReactNode;
+  headerNode: React.ReactNode;
+  contentNode: React.ReactNode;
+  isOpen: boolean;
+  handleClick: () => void;
 }
 
-function Accordion({ headerNode, contentNode }: AccordionProps) {
-  const [isOpen, setIsOpen] = useState(false);
+function Accordion({
+  headerNode,
+  contentNode,
+  isOpen,
+  handleClick,
+}: AccordionProps) {
   const contentRef = useRef<HTMLDivElement>(null);
   const [contentHeight, setContentHeight] = useState(0);
-
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-  };
 
   useEffect(() => {
     if (contentRef.current) {

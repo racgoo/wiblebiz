@@ -5,7 +5,7 @@ import FaqTitle from "@app/FAQ/FaqTitle";
 import FaqSearch from "@app/FAQ/FaqSearch";
 import HeaderTab from "@components/tab/HeaderTab";
 import SubTab from "@components/tab/SubTab";
-import Accordion from "@components/accordion/Accordion";
+import FaqAccordion from "./FaqAccordion";
 
 const tabList = [
   {
@@ -37,11 +37,29 @@ const subTabList = [
   },
 ];
 
+const accordionList = [
+  {
+    type: "서비스 상품",
+    title: "header",
+    content: "content",
+  },
+  {
+    type: "서비스 상품",
+    title: "header2",
+    content: "content2",
+  },
+  {
+    type: "서비스 상품",
+    title: "header3",
+    content: "content3",
+  },
+];
+
 function Faq() {
   const [searchText, setSearchText] = useState("");
   const [selectedMainTabIndex, setSelectedMainTabIndex] = useState(0);
   const [selectedSubTabIndex, setSelectedSubTabIndex] = useState(0);
-
+  const [activeAccordionId, setActiveAccordionId] = useState("");
   useEffect(() => {
     console.log(searchText);
   }, [searchText]);
@@ -64,7 +82,17 @@ function Faq() {
         setSelectedTabIndex={setSelectedSubTabIndex}
         selectedTabIndex={selectedSubTabIndex}
       />
-      <Accordion title="전체" content="전체" />
+      {accordionList.map((accordion) => (
+        <FaqAccordion
+          key={accordion.title}
+          type={accordion.type}
+          title={accordion.title}
+          content={accordion.content}
+          accordionId={accordion.title}
+          activeAccordionId={activeAccordionId}
+          setActiveAccordionId={setActiveAccordionId}
+        />
+      ))}
     </article>
   );
 }
