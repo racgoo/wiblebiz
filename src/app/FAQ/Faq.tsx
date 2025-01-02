@@ -5,6 +5,7 @@ import FaqTitle from "@app/FAQ/FaqTitle";
 import FaqSearch from "@app/FAQ/FaqSearch";
 import HeaderTab from "@components/tab/HeaderTab";
 import SubTab from "@components/tab/SubTab";
+import Accordion from "@components/accordion/Accordion";
 
 const tabList = [
   {
@@ -63,6 +64,7 @@ function Faq() {
         setSelectedTabIndex={setSelectedSubTabIndex}
         selectedTabIndex={selectedSubTabIndex}
       />
+      <Accordion title="전체" content="전체" />
     </article>
   );
 }

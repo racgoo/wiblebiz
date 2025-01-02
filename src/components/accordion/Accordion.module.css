@@ -1,0 +1,39 @@
+.container {
+  border-bottom: 1px solid var(--gray200);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0px;
+  cursor: pointer;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+}
+
+.header.active {
+  background-color: var(--gray100);
+}
+
+.arrow {
+  font-size: 12px;
+  color: var(--gray600);
+  transition: transform 0.3s ease-in;
+}
+
+.arrow.rotated {
+  transform: rotate(180deg);
+}
+
+.content {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in;
+}
+
+.contentDivider {
+  height: 16px;
+  border-top: 1px solid var(--gray200);
+  background-color: var(--gray100);
+}
