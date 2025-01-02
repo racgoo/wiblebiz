@@ -16,9 +16,17 @@ interface TabProps {
   tabList: string[];
   setSelectedTabIndex: (index: number) => void;
   selectedTabIndex: number;
+  marginTop?: number;
+  marginBottom?: number;
 }
 
-function Tab({ tabList, setSelectedTabIndex, selectedTabIndex }: TabProps) {
+function Tab({
+  tabList,
+  setSelectedTabIndex,
+  selectedTabIndex,
+  marginTop = 0,
+  marginBottom = 0,
+}: TabProps) {
   const media = useMedia();
 
   const handleTabClick = (index: number) => {
@@ -26,7 +34,10 @@ function Tab({ tabList, setSelectedTabIndex, selectedTabIndex }: TabProps) {
   };
 
   return (
-    <ul className={styles.container}>
+    <ul
+      className={styles.container}
+      style={{ marginTop: marginTop, marginBottom: marginBottom }}
+    >
       {tabList.map((tab, index) => (
         <li
           key={tab}

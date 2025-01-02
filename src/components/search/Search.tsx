@@ -9,9 +9,16 @@ import { useRef } from "react";
 interface SearchProps {
   setSearchText: (text: string) => void;
   searchAction: (text: string) => void;
+  marginTop?: number;
+  marginBottom?: number;
 }
 
-function Search({ setSearchText, searchAction }: SearchProps) {
+function Search({
+  setSearchText,
+  searchAction,
+  marginTop = 0,
+  marginBottom = 0,
+}: SearchProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
@@ -31,7 +38,10 @@ function Search({ setSearchText, searchAction }: SearchProps) {
   };
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ marginTop: marginTop, marginBottom: marginBottom }}
+    >
       <input
         ref={inputRef}
         type="text"

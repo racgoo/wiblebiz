@@ -5,9 +5,21 @@ import { useEffect, useState } from "react";
 import FaqTitle from "./FaqTitle";
 import Tab from "@components/tab/Tab";
 
+const tabList = [
+  {
+    title: "서비스 도입",
+    key: "CONSULT",
+  },
+  {
+    title: "서비스 이용",
+    key: "JOIN_SERVICE_USE",
+  },
+];
+
 function Faq() {
   const [searchText, setSearchText] = useState("");
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
+
   useEffect(() => {
     console.log(searchText);
   }, [searchText]);
@@ -20,11 +32,16 @@ function Faq() {
     <article>
       <FaqTitle />
       <Tab
-        tabList={["전체", "회원", "예약", "결제", "취소", "기타"]}
+        tabList={tabList.map((tab) => tab.title)}
         setSelectedTabIndex={setSelectedTabIndex}
         selectedTabIndex={selectedTabIndex}
+        marginBottom={24}
       />
-      <Search setSearchText={setSearchText} searchAction={searchAction} />
+      <Search
+        setSearchText={setSearchText}
+        searchAction={searchAction}
+        marginBottom={16}
+      />
     </article>
   );
 }
