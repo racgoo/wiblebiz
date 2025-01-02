@@ -13,6 +13,8 @@ import fetchTerm from "@api/term.api";
 import fetchTabs from "@api/tabs.api";
 
 import { STATIC_STALE_TIME } from "@shared/constants";
+import { Fragment } from "react";
+import ScrollUpButton from "@components/button/ScrollUpButton";
 
 const queryClient = new QueryClient();
 
@@ -44,7 +46,10 @@ export default async function RootLayout({
         <QueryProvider>
           <HydrationBoundary state={dehydratedState}>
             <TopNavigation />
-            <main className={styles.container}>{children}</main>
+            <main className={styles.container}>
+              <Fragment>{children}</Fragment>
+            </main>
+            <ScrollUpButton />
             <Footer />
           </HydrationBoundary>
         </QueryProvider>
