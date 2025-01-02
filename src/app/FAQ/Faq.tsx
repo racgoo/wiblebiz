@@ -1,7 +1,9 @@
 "use client";
 
 import Search from "@components/search/Search";
+import CommonText from "@components/text/CommonText";
 import { useEffect, useState } from "react";
+import FaqTitle from "./FaqTitle";
 
 function Faq() {
   const [searchText, setSearchText] = useState("");
@@ -15,6 +17,7 @@ function Faq() {
 
   return (
     <article>
+      <FaqTitle />
       <Search setSearchText={setSearchText} searchAction={searchAction} />
     </article>
   );
