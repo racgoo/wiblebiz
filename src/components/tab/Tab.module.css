@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+  @media (min-width: 744px) {
+    height: 46px;
+  }
+  @media (min-width: 1024px) {
+    height: 54px;
+  }
+}
+
+.tabItem {
+  cursor: pointer;
+  border: 1px solid var(--gray200);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.selected {
+  color: var(--white);
+  background-color: var(--gray800);
+  border: 1px solid var(--gray800);
+}

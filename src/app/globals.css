@@ -96,3 +96,6 @@ select::-ms-expand {
 input {
   border: none;
 }
+ul {
+  list-style: none;
+}
