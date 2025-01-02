@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import FaqTitle from "./FaqTitle";
-import Tab from "@components/tab/Tab";
-import FaqSearch from "./FaqSearch";
+import FaqTitle from "@app/FAQ/FaqTitle";
+import FaqSearch from "@app/FAQ/FaqSearch";
+import HeaderTab from "@components/tab/HeaderTab";
+import SubTab from "@components/tab/SubTab";
 
 const tabList = [
   {
@@ -16,9 +17,29 @@ const tabList = [
   },
 ];
 
+const subTabList = [
+  {
+    title: "전체",
+    key: "ALL",
+  },
+  {
+    title: "서비스 상담",
+    key: "CONSULT",
+  },
+  {
+    title: "도입 상담",
+    key: "JOIN_CONSULT",
+  },
+  {
+    title: "계약",
+    key: "JOIN_CONTRACT",
+  },
+];
+
 function Faq() {
   const [searchText, setSearchText] = useState("");
-  const [selectedTabIndex, setSelectedTabIndex] = useState(0);
+  const [selectedMainTabIndex, setSelectedMainTabIndex] = useState(0);
+  const [selectedSubTabIndex, setSelectedSubTabIndex] = useState(0);
 
   useEffect(() => {
     console.log(searchText);
@@ -31,16 +52,16 @@ function Faq() {
   return (
     <article>
       <FaqTitle />
-      <Tab
+      <HeaderTab
         tabList={tabList.map((tab) => tab.title)}
-        setSelectedTabIndex={setSelectedTabIndex}
-        selectedTabIndex={selectedTabIndex}
-        marginBottom={24}
+        setSelectedTabIndex={setSelectedMainTabIndex}
+        selectedTabIndex={selectedMainTabIndex}
       />
-      <FaqSearch
-        setSearchText={setSearchText}
-        searchAction={searchAction}
-        marginBottom={16}
+      <FaqSearch setSearchText={setSearchText} searchAction={searchAction} />
+      <SubTab
+        tabList={subTabList.map((tab) => tab.title)}
+        setSelectedTabIndex={setSelectedSubTabIndex}
+        selectedTabIndex={selectedSubTabIndex}
       />
     </article>
   );

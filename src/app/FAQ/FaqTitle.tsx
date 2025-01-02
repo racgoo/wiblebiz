@@ -2,6 +2,7 @@
 
 import CommonText from "@components/text/CommonText";
 import useMedia, { MediaType } from "@hooks/useMedia";
+import styles from "@app/FAQ/FaqTitle.module.css";
 
 const titleFontSize: Record<MediaType, number> = {
   loading: 24,
@@ -20,16 +21,7 @@ const subTitleFontSize: Record<MediaType, number> = {
 function FaqTitle() {
   const media = useMedia();
   return (
-    <section
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        gap: 5,
-        height: 124,
-      }}
-    >
+    <section className={styles.container}>
       <CommonText type="large" size={titleFontSize[media]}>
         자주 묻는 질문
       </CommonText>

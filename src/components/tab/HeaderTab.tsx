@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@components/tab/Tab.module.css";
+import styles from "@components/tab/HeaderTab.module.css";
 import CommonText from "@components/text/CommonText";
 import useMedia, { MediaType } from "@hooks/useMedia";
 import clsx from "clsx";
@@ -16,16 +16,12 @@ interface TabProps {
   tabList: string[];
   setSelectedTabIndex: (index: number) => void;
   selectedTabIndex: number;
-  marginTop?: number;
-  marginBottom?: number;
 }
 
-function Tab({
+function HeaderTab({
   tabList,
   setSelectedTabIndex,
   selectedTabIndex,
-  marginTop = 0,
-  marginBottom = 0,
 }: TabProps) {
   const media = useMedia();
 
@@ -34,10 +30,7 @@ function Tab({
   };
 
   return (
-    <ul
-      className={styles.container}
-      style={{ marginTop: marginTop, marginBottom: marginBottom }}
-    >
+    <ul className={styles.container}>
       {tabList.map((tab, index) => (
         <li
           key={tab}
@@ -59,4 +52,4 @@ function Tab({
   );
 }
 
-export default Tab;
+export default HeaderTab;
