@@ -14,4 +14,4 @@ Wiblebiz FAQ 페이지 과제
 4. 컴포넌트 분리
 5. API Server 작업
 6. API 연동
-7. 배포
+
