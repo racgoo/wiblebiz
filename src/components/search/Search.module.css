@@ -4,6 +4,14 @@
   justify-content: center;
   border: 1px solid var(--gray800);
   height: 40px;
+  @media (min-width: 744px) {
+    height: 48px;
+    max-width: 400px;
+  }
+  @media (min-width: 1024px) {
+    height: 56px;
+    max-width: 480px;
+  }
 }
 
 .search {
@@ -13,6 +21,13 @@
   width: 100%;
   height: 100%;
   padding-left: 16px;
+  @media (min-width: 744px) {
+    font-size: 16px;
+    width: 400px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 18px;
+  }
 }
 
 .search::placeholder {

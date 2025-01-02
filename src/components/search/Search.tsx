@@ -1,5 +1,3 @@
-"use client";
-
 import styles from "@components/search/Search.module.css";
 import searchIcon from "@public/icon/search-icon.svg";
 import searchClearIcon from "@public/icon/search-clear-icon.svg";
@@ -11,6 +9,7 @@ interface SearchProps {
   searchAction: (text: string) => void;
   marginTop?: number;
   marginBottom?: number;
+  width?: string | number;
 }
 
 function Search({
@@ -18,6 +17,7 @@ function Search({
   searchAction,
   marginTop = 0,
   marginBottom = 0,
+  width = "100%",
 }: SearchProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,7 +40,11 @@ function Search({
   return (
     <div
       className={styles.container}
-      style={{ marginTop: marginTop, marginBottom: marginBottom }}
+      style={{
+        marginTop: marginTop,
+        marginBottom: marginBottom,
+        width: width,
+      }}
     >
       <input
         ref={inputRef}
