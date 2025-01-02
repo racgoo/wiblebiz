@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "@app/FAQ/Faq.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import FaqTitle from "@app/FAQ/FaqTitle";
 import FaqSearch from "@app/FAQ/FaqSearch";
 import HeaderTab from "@components/tab/HeaderTab";
@@ -9,36 +9,8 @@ import SubTab from "@components/tab/SubTab";
 import FaqAccordion from "./FaqAccordion";
 import { colors } from "@style/colors";
 import FaqMoreButton from "./FaqMoreButton";
-
-const tabList = [
-  {
-    title: "서비스 도입",
-    key: "CONSULT",
-  },
-  {
-    title: "서비스 이용",
-    key: "JOIN_SERVICE_USE",
-  },
-];
-
-const subTabList = [
-  {
-    title: "전체",
-    key: "ALL",
-  },
-  {
-    title: "서비스 상담",
-    key: "CONSULT",
-  },
-  {
-    title: "도입 상담",
-    key: "JOIN_CONSULT",
-  },
-  {
-    title: "계약",
-    key: "JOIN_CONTRACT",
-  },
-];
+import fetchTabs from "@api/tabs.api";
+import { useQuery } from "@tanstack/react-query";
 
 const accordionList = [
   {
@@ -63,10 +35,19 @@ function Faq() {
   const [selectedMainTabIndex, setSelectedMainTabIndex] = useState(0);
   const [selectedSubTabIndex, setSelectedSubTabIndex] = useState(0);
   const [activeAccordionId, setActiveAccordionId] = useState("");
-  useEffect(() => {
-    console.log(searchText);
-  }, [searchText]);
 
+  const { data: tabs } = useQuery({
+    queryKey: ["tabs"],
+    queryFn: fetchTabs,
+  });
+
+  if (!tabs) return null;
+
+  const headerTabList = tabs.map((tab) => tab.name);
+  const subTabList = [
+    "전체",
+    ...tabs[selectedMainTabIndex].categories.map((tab) => tab.name),
+  ];
   const searchAction = (text: string) => {
     console.log(text);
   };
@@ -75,13 +56,13 @@ function Faq() {
     <article className={styles.container}>
       <FaqTitle />
       <HeaderTab
-        tabList={tabList.map((tab) => tab.title)}
+        tabList={headerTabList}
         setSelectedTabIndex={setSelectedMainTabIndex}
         selectedTabIndex={selectedMainTabIndex}
       />
       <FaqSearch setSearchText={setSearchText} searchAction={searchAction} />
       <SubTab
-        tabList={subTabList.map((tab) => tab.title)}
+        tabList={subTabList}
         setSelectedTabIndex={setSelectedSubTabIndex}
         selectedTabIndex={selectedSubTabIndex}
       />

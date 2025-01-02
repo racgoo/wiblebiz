@@ -12,7 +12,6 @@ import Term from "../term/Term";
 import { useState } from "react";
 
 const PRIVACY_POLICY_URL = "https://privacy.kia.com/overview/full-policy";
-import termData from "@components/term/dummyTermData";
 
 const DETAIL_INFO: DETAIL_INFO_TYPE = {
   location: "서울특별시 서초구 헌릉로 12",
@@ -63,7 +62,7 @@ function Footer() {
       </div>
 
       <Dialog open={dialogOpen}>
-        <Term handleClose={handleCloseDialog} termData={termData} />
+        <Term handleClose={handleCloseDialog} />
       </Dialog>
     </footer>
   );

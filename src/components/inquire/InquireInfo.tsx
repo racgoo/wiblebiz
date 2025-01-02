@@ -1,6 +1,8 @@
+"use client";
+
 import styles from "@components/inquire/InquireInfo.module.css";
 import CommonText from "@components/text/CommonText";
-import InquireBox from "./InquireBox";
+import InquireBox from "@components/inquire/InquireBox";
 
 import inquireBoxIcon_1 from "@public/icon/inquire-box-icon-1.svg";
 import inquireBoxIcon_2 from "@public/icon/inquire-box-icon-2.svg";

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.62.11",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
     "json-server": "^1.0.0-beta.3",
