@@ -7,6 +7,8 @@ import Image from "next/image";
 import TermDetail from "@components/term/TermDetail";
 import { useState } from "react";
 import dayjs from "dayjs";
+import fetchTerm from "@api/term.api";
+import { useQuery } from "@tanstack/react-query";
 
 export interface TermType {
   termsName: string;
@@ -20,16 +22,17 @@ export interface TermDataType {
   terms: TermType[];
 }
 
-const Term = ({
-  handleClose,
-  termData,
-}: {
-  handleClose: () => void;
-  termData: TermDataType;
-}) => {
+const Term = ({ handleClose }: { handleClose: () => void }) => {
+  const { data: termData } = useQuery({
+    queryKey: ["term"],
+    queryFn: fetchTerm,
+  });
+
   const [termContents, setTermContents] = useState(
-    termData.terms[0].contents || ""
+    termData?.terms[0].contents || ""
   );
+
+  if (!termData) return null;
 
   const handleSelectTerm = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedTermContents = e.target.value;

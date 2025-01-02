@@ -92,7 +92,7 @@
       ]
     }
   ],
-  "consult-faq": [
+  "faq-consult": [
     {
       "id": 38,
       "categoryName": "도입문의",
@@ -122,7 +122,7 @@
       "answer": "\u003cp\u003e\u003cspan style=\"font-size: \u0026#39;13pt\u0026#39;; color: rgba(106, 122, 135, 1); word-break: keep-all;\"\u003e위블 비즈 비즈니스 상품 도입 절차는 아래와 같습니다.\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cspan style=\"font-size: \u0026#39;13pt\u0026#39;; color: rgba(106, 122, 135, 1); word-break: keep-all;\"\u003e① 상담 문의 등록 후 1:1 맞춤 상담 진행\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cspan style=\"font-size: \u0026#39;13pt\u0026#39;; color: rgba(106, 122, 135, 1); word-break: keep-all;\"\u003e② 서비스 도입 상품 및 세부 조건 협의 후 계약 진행\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cspan style=\"font-size: \u0026#39;13pt\u0026#39;; color: rgba(106, 122, 135, 1); word-break: keep-all;\"\u003e③ 관리자 Web 계정 생성 후 회사 정보 설정\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cspan style=\"font-size: \u0026#39;13pt\u0026#39;; color: rgba(106, 122, 135, 1); word-break: keep-all;\"\u003e④ 임직원 회원가입 진행\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cspan style=\"font-size: \u0026#39;13pt\u0026#39;; color: rgba(106, 122, 135, 1); word-break: keep-all;\"\u003e⑤ 전용 위블존에서 차량 대여 및 이용\u003c/span\u003e\u003c/p\u003e"
     }
   ],
-  "usage-faq": [
+  "faq-usage": [
     {
       "id": 34,
       "categoryName": "가입문의",

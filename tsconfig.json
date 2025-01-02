@@ -24,7 +24,8 @@
       "@public/*": ["./public/*"],
       "@components/*": ["./src/components/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@app/*": ["./src/app/*"]
+      "@app/*": ["./src/app/*"],
+      "@api/*": ["./src/api/*"]
     }
   },
   "include": [
