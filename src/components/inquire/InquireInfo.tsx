@@ -1,5 +1,3 @@
-"use client";
-
 import styles from "@components/inquire/InquireInfo.module.css";
 import CommonText from "@components/text/CommonText";
 import InquireBox from "@components/inquire/InquireBox";
