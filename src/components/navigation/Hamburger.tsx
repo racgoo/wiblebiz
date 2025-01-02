@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import styles from "@components/navigation/Hamburger.module.css";
 import useMedia from "@hooks/useMedia";
 import clsx from "clsx";
@@ -20,14 +20,16 @@ function Hamburger({ onClick }: HamburgerProps) {
 
   if (media === "pc" || media === "loading") return null;
   return (
-    <button
-      className={clsx(styles.hamburger, isOpen && styles.open)}
-      onClick={handleClick}
-    >
-      <span className={styles.line} />
-      <span className={styles.line} />
-      <span className={styles.line} />
-    </button>
+    <Fragment>
+      <button
+        className={clsx(styles.hamburger, isOpen && styles.open)}
+        onClick={handleClick}
+      >
+        <span className={styles.line} />
+        <span className={styles.line} />
+        <span className={styles.line} />
+      </button>
+    </Fragment>
   );
 }
 
