@@ -27,7 +27,7 @@ function ProcessBox({
   const media = useMedia();
   const isNeedArrow = index !== 0 && media === "pc";
   return (
-    <ul className={styles.processBox}>
+    <li className={styles.processBox}>
       <Image src={icon} alt={title} className={styles.icon} />
       <div className={styles.textBox}>
         {isNeedArrow && (
@@ -44,7 +44,7 @@ function ProcessBox({
           {content}
         </CommonText>
       </div>
-    </ul>
+    </li>
   );
 }
 

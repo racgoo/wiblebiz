@@ -56,3 +56,7 @@
     width: 296px;
   }
 }
+
+.download:hover {
+  text-decoration: none;
+}

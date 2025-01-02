@@ -52,7 +52,7 @@ body {
   max-width: 100vw;
   overflow: auto;
   min-width: 360px;
-  color: #05141f;
+  color: var(--gray800);
   background: #ffffff;
   font-family: "Kia-font-700", Arial, sans-serif, Helvetica;
   -webkit-font-smoothing: antialiased;
@@ -91,4 +91,11 @@ select::-ms-expand {
 
 *:focus {
   outline: 0;
+}
+
+input {
+  border: none;
+}
+ul {
+  list-style: none;
 }
