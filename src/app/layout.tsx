@@ -17,7 +17,7 @@ import { STATIC_STALE_TIME } from "@shared/constants";
 const queryClient = new QueryClient();
 
 const RootPrefetch = async () => {
-  Promise.allSettled([
+  return Promise.allSettled([
     queryClient.prefetchQuery({
       queryKey: ["term"],
       queryFn: fetchTerm,

@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "@app/FAQ/Faq.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FaqTitle from "@app/FAQ/FaqTitle";
 import FaqSearch from "@app/FAQ/FaqSearch";
 import HeaderTab from "@components/tab/HeaderTab";
@@ -40,6 +40,10 @@ function Faq() {
     queryKey: ["tabs"],
     queryFn: fetchTabs,
   });
+
+  useEffect(() => {
+    setSelectedSubTabIndex(0);
+  }, [selectedMainTabIndex]);
 
   if (!tabs) return null;
 
