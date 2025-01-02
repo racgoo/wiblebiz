@@ -8,8 +8,20 @@ type fetchFaqConsultResponse = {
   answer: string;
 }[];
 
-function fetchFaqConsult(): Promise<fetchFaqConsultResponse> {
-  return fetchData("/faq-consult");
+function fetchFaqConsult({
+  page,
+  categoryName,
+  filter,
+}: {
+  page: number;
+  categoryName: string;
+  filter: string;
+}): Promise<fetchFaqConsultResponse> {
+  const categoryField =
+    categoryName === "전체" ? "" : `&subCategoryName=${categoryName}`;
+  const filterField = filter === "" ? "" : `&question_like=${filter}`;
+  const path = `/faq-consult?_page=${page}&_per_page=10${filterField}${categoryField}`;
+  return fetchData(path);
 }
 
 export default fetchFaqConsult;

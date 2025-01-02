@@ -53,13 +53,6 @@ const titleFontSize = {
   pc: 18,
 };
 
-const contentFontSize = {
-  loading: 12,
-  mobile: 12,
-  tablet: 16,
-  pc: 18,
-};
-
 function FaqAccordionHeader({ title, type }: { title: string; type: string }) {
   const media = useMedia();
   return (
@@ -85,13 +78,16 @@ function FaqAccordionHeader({ title, type }: { title: string; type: string }) {
 }
 
 function FaqAccordionContent({ content }: { content: string }) {
-  const media = useMedia();
   return (
-    <div className={styles.accordionContent}>
-      <CommonText size={contentFontSize[media]} color="gray500" type="regular">
-        {content}
-      </CommonText>
-    </div>
+    <div
+      className={styles.accordionContent}
+      dangerouslySetInnerHTML={{ __html: content }}
+      ref={(el) => {
+        if (el) {
+          el.style.height = `${el.scrollHeight}px`;
+        }
+      }}
+    />
   );
 }
 

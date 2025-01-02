@@ -18,18 +18,26 @@ const marginTop = {
   pc: 32,
 };
 
-function FaqMoreButton({ handleClick }: { handleClick: () => void }) {
+function FaqMoreButton({
+  handleClick,
+  isLastPage,
+}: {
+  handleClick: () => void;
+  isLastPage: boolean;
+}) {
   const media = useMedia();
+  const text = isLastPage ? "마지막 페이지입니다." : "+더보기";
   return (
     <button
       className={styles.container}
       style={{
         marginTop: marginTop[media],
       }}
+      disabled={isLastPage}
       onClick={handleClick}
     >
       <CommonText size={fontSize[media]} type="regular">
-        +더보기
+        {text}
       </CommonText>
     </button>
   );

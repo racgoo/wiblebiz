@@ -10,11 +10,11 @@
 
 .accordionType {
   display: flex;
-  justify-content: center;
   align-items: center;
   line-height: 1;
   @media (min-width: 1024px) {
     width: 184px;
+    justify-content: center;
   }
 }
 
