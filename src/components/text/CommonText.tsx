@@ -22,7 +22,11 @@ function CommonText({
   return (
     <p
       className={clsx(styles[type], className)}
-      style={{ fontSize: size, color: colors[color], lineHeight }}
+      style={{
+        fontSize: size,
+        color: colors[color],
+        lineHeight,
+      }}
     >
       {children}
     </p>

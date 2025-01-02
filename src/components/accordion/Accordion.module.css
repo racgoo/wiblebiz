@@ -10,6 +10,12 @@
   cursor: pointer;
   background-color: var(--white);
   transition: all 0.3s ease;
+  @media (min-width: 744px) {
+    padding: 24px 0px;
+  }
+  @media (min-width: 1024px) {
+    padding: 18px 0px;
+  }
 }
 
 .header.active {
@@ -17,9 +23,18 @@
 }
 
 .arrow {
-  font-size: 12px;
+  width: 24px;
+  height: 24px;
   color: var(--gray600);
   transition: transform 0.3s ease-in;
+  @media (min-width: 744px) {
+    width: 28px;
+    height: 28px;
+  }
+  @media (min-width: 1024px) {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 .arrow.rotated {
@@ -29,6 +44,7 @@
 .content {
   height: 0;
   overflow: hidden;
+  border-top: 1px solid var(--gray200);
   transition: all 0.3s ease-in;
 }
 

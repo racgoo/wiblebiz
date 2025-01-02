@@ -1,5 +1,9 @@
+"use client";
+
+import styles from "@app/FAQ/FaqAccordion.module.css";
 import Accordion from "@components/accordion/Accordion";
 import CommonText from "@components/text/CommonText";
+import useMedia from "@hooks/useMedia";
 
 interface FaqAccordionProps {
   title: string;
@@ -35,13 +39,45 @@ function FaqAccordion({
   );
 }
 
+const typeFontSize = {
+  loading: 12,
+  mobile: 12,
+  tablet: 16,
+  pc: 18,
+};
+
+const titleFontSize = {
+  loading: 16,
+  mobile: 16,
+  tablet: 20,
+  pc: 18,
+};
+
+const contentFontSize = {
+  loading: 12,
+  mobile: 12,
+  tablet: 16,
+  pc: 18,
+};
+
 function FaqAccordionHeader({ title, type }: { title: string; type: string }) {
+  const media = useMedia();
   return (
-    <div>
-      <CommonText size={12} color="gray500" type="small">
+    <div className={styles.accordionHeader}>
+      <CommonText
+        size={typeFontSize[media]}
+        color="gray500"
+        type="small"
+        className={styles.accordionType}
+      >
         {type}
       </CommonText>
-      <CommonText size={16} color="gray800" type="large">
+      <CommonText
+        size={titleFontSize[media]}
+        color="gray800"
+        type="large"
+        className={styles.accordionTitle}
+      >
         {title}
       </CommonText>
     </div>
@@ -49,9 +85,10 @@ function FaqAccordionHeader({ title, type }: { title: string; type: string }) {
 }
 
 function FaqAccordionContent({ content }: { content: string }) {
+  const media = useMedia();
   return (
-    <div style={{ margin: "16px 0px " }}>
-      <CommonText size={12} color="gray500" type="regular">
+    <div className={styles.accordionContent}>
+      <CommonText size={contentFontSize[media]} color="gray500" type="regular">
         {content}
       </CommonText>
     </div>

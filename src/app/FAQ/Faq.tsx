@@ -1,11 +1,14 @@
 "use client";
 
+import styles from "@app/FAQ/Faq.module.css";
 import { useEffect, useState } from "react";
 import FaqTitle from "@app/FAQ/FaqTitle";
 import FaqSearch from "@app/FAQ/FaqSearch";
 import HeaderTab from "@components/tab/HeaderTab";
 import SubTab from "@components/tab/SubTab";
 import FaqAccordion from "./FaqAccordion";
+import { colors } from "@style/colors";
+import FaqMoreButton from "./FaqMoreButton";
 
 const tabList = [
   {
@@ -69,7 +72,7 @@ function Faq() {
   };
 
   return (
-    <article>
+    <article className={styles.container}>
       <FaqTitle />
       <HeaderTab
         tabList={tabList.map((tab) => tab.title)}
@@ -82,6 +85,7 @@ function Faq() {
         setSelectedTabIndex={setSelectedSubTabIndex}
         selectedTabIndex={selectedSubTabIndex}
       />
+      <div style={{ height: 2, backgroundColor: colors.gray800 }} />
       {accordionList.map((accordion) => (
         <FaqAccordion
           key={accordion.title}
@@ -93,6 +97,7 @@ function Faq() {
           setActiveAccordionId={setActiveAccordionId}
         />
       ))}
+      <FaqMoreButton handleClick={() => {}} />
     </article>
   );
 }

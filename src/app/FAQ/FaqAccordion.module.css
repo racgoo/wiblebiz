@@ -1,0 +1,33 @@
+.accordionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    align-items: "center";
+  }
+}
+
+.accordionType {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  @media (min-width: 1024px) {
+    width: 184px;
+  }
+}
+
+.accordionTitle {
+  line-height: 1;
+}
+
+.accordionContent {
+  margin: 16px 0px;
+  @media (min-width: 744px) {
+    margin: 24px;
+  }
+  @media (min-width: 1024px) {
+    margin: 24px 32px;
+  }
+}
