@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "@components/inquire/InquireInfo.module.css";
 import CommonText from "@components/text/CommonText";
 import InquireBox from "@components/inquire/InquireBox";
@@ -5,6 +7,7 @@ import InquireBox from "@components/inquire/InquireBox";
 import inquireBoxIcon_1 from "@public/icon/inquire-box-icon-1.svg";
 import inquireBoxIcon_2 from "@public/icon/inquire-box-icon-2.svg";
 import inquireBoxIcon_3 from "@public/icon/inquire-box-icon-3.svg";
+import useMedia from "@hooks/useMedia";
 
 const INQUIRE_INFO = [
   {
@@ -30,11 +33,19 @@ const INQUIRE_INFO = [
   },
 ];
 
+const titleFontSize = {
+  loading: 20,
+  mobile: 20,
+  tablet: 24,
+  pc: 24,
+};
+
 function InquireInfo() {
+  const media = useMedia();
   return (
     <div className={styles.inquireInfo}>
       <section className={styles.inquireTitle}>
-        <CommonText type="large" size={24}>
+        <CommonText type="large" size={titleFontSize[media]}>
           서비스 문의
         </CommonText>
       </section>
