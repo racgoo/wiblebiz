@@ -1,15 +1,15 @@
 import styles from "@app/FAQ/FaqSearch.module.css";
 import Search from "@components/search/Search";
+import { useState } from "react";
 
 interface FaqSearchProps {
-  setSearchText: (text: string) => void;
   searchAction: (text: string) => void;
 }
 
-function FaqSearch({ setSearchText, searchAction }: FaqSearchProps) {
+function FaqSearch({ searchAction }: FaqSearchProps) {
   return (
     <section className={styles.container}>
-      <Search setSearchText={setSearchText} searchAction={searchAction} />
+      <Search setSearchText={() => {}} searchAction={searchAction} />
     </section>
   );
 }
