@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import fetchFaqConsult from "@api/faq-consult.api";
 import fetchFaqUsage from "@api/faq-usage.api";

@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "@components/guide/ProcessInfo.module.css";
 import CommonText from "@components/text/CommonText";
 import ProcessBox from "./ProcessBox";
@@ -5,6 +7,7 @@ import ProcessIcon_1 from "@public/icon/process-1-icon.svg";
 import ProcessIcon_2 from "@public/icon/process-2-icon.svg";
 import ProcessIcon_3 from "@public/icon/process-3-icon.svg";
 import ProcessIcon_4 from "@public/icon/process-4-icon.svg";
+import useMedia from "@hooks/useMedia";
 
 const processBoxList = [
   {
@@ -29,11 +32,19 @@ const processBoxList = [
   },
 ];
 
+const titleFontSize = {
+  loading: 20,
+  mobile: 20,
+  tablet: 24,
+  pc: 24,
+};
+
 function ProcessInfo() {
+  const media = useMedia();
   return (
     <article className={styles.processInfo}>
       <section style={{ marginBottom: 16 }}>
-        <CommonText type="large" size={24}>
+        <CommonText type="large" size={titleFontSize[media]}>
           이용 프로세스 안내
         </CommonText>
       </section>
