@@ -15,17 +15,19 @@ type FaqViewType = {
   content: string;
 };
 
+interface useFaqListViewModelProps {
+  faqType: FaqEnum;
+  filter: string;
+  categoryName: string;
+  page: number;
+}
+
 function useFaqListViewModel({
   faqType,
   filter,
   categoryName,
   page,
-}: {
-  faqType: FaqEnum;
-  filter: string;
-  categoryName: string;
-  page: number;
-}) {
+}: useFaqListViewModelProps) {
   const [isLastPage, setIsLastPage] = useState(false);
   const [accumulatedData, setAccumulatedData] = useState<FaqViewType[]>([]);
 

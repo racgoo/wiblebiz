@@ -9,30 +9,24 @@ import SubTab from "@components/tab/SubTab";
 import FaqAccordion from "./FaqAccordion";
 import { colors } from "@style/colors";
 import FaqMoreButton from "./FaqMoreButton";
-import fetchTabs from "@api/tabs.api";
-import { useQuery } from "@tanstack/react-query";
 import useFaqListViewModel from "@view-model/useFaqListViewModel";
+import useFaqTabViewModel from "@view-model/useFaqTabViewModel";
 
 function Faq() {
   const [filter, setFilter] = useState("");
-  const [selectedMainTabIndex, setSelectedMainTabIndex] = useState(0);
-  const [selectedSubTabIndex, setSelectedSubTabIndex] = useState(0);
-  const [activeAccordionId, setActiveAccordionId] = useState("");
   const [page, setPage] = useState(1);
+  const [activeAccordionId, setActiveAccordionId] = useState("");
 
-  const { data: tabs } = useQuery({
-    queryKey: ["tabs"],
-    queryFn: fetchTabs,
-  });
-
-  const headerTabList = tabs!.map((tab) => tab.name);
-  const subTabList = [
-    "전체",
-    ...tabs![selectedMainTabIndex].categories.map((tab) => tab.name),
-  ];
-
-  const categoryName = subTabList[selectedSubTabIndex];
-  const faqType = tabs![selectedMainTabIndex].tabId as FaqEnum;
+  const {
+    headerTabList,
+    subTabList,
+    categoryName,
+    faqType,
+    selectedMainTabIndex,
+    setSelectedMainTabIndex,
+    selectedSubTabIndex,
+    setSelectedSubTabIndex,
+  } = useFaqTabViewModel();
 
   const { faqData, isLastPage } = useFaqListViewModel({
     categoryName,
@@ -40,8 +34,6 @@ function Faq() {
     filter,
     page,
   });
-
-  if (!tabs) return new Error();
 
   function searchAction(text: string) {
     setFilter(text);
