@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import fetchFaqConsult from "@api/faq-consult.api";
 import fetchFaqUsage from "@api/faq-usage.api";
 import { MINUTE } from "@shared/constants";
@@ -28,43 +28,44 @@ function useFaqListViewModel({
   categoryName,
   page,
 }: useFaqListViewModelProps) {
-  const [isLastPage, setIsLastPage] = useState(false);
   const [accumulatedData, setAccumulatedData] = useState<FaqViewType[]>([]);
 
   const fetchFn = faqType === FaqEnum.CONSULT ? fetchFaqConsult : fetchFaqUsage;
 
-  useQuery({
+  const { data: queryData } = useQuery({
     queryKey: [faqType, page, categoryName, filter],
     queryFn: fetchFaqData,
     staleTime: MINUTE,
+    placeholderData: keepPreviousData,
   });
 
   async function fetchFaqData() {
-    if (page === 1) {
-      setAccumulatedData([]);
-    }
+    let isLastPage = false;
     const faqList = await fetchFn({
       page,
       categoryName,
       filter,
     });
-    if (!faqList) return [];
+
     if (faqList.length === 0) {
-      setIsLastPage(true);
-      return [];
+      isLastPage = true;
     }
-    setIsLastPage(false);
+
     const newData = faqList.map((faq) => ({
       type: faq.subCategoryName,
       title: faq.question,
       content: faq.answer,
     }));
-    setAccumulatedData((prev) => [...prev, ...newData]);
-    return newData;
+
+    const prevPageData = page === 1 ? [] : accumulatedData;
+    const tempAccumulatedData = [...prevPageData, ...newData];
+    setAccumulatedData(tempAccumulatedData);
+    return { data: tempAccumulatedData, isLastPage };
   }
+
   return {
-    faqData: accumulatedData,
-    isLastPage,
+    faqData: queryData?.data ?? [],
+    isLastPage: queryData?.isLastPage ?? false,
   };
 }
 
