@@ -25,7 +25,8 @@
       "@components/*": ["./src/components/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@app/*": ["./src/app/*"],
-      "@api/*": ["./src/api/*"]
+      "@api/*": ["./src/api/*"],
+      "@view-model/*": ["./src/view-model/*"]
     }
   },
   "include": [
